@@ -10,3 +10,7 @@ command = "worker-build --release"
 binding = "koreader-sync"
 database_name = "koreader-sync"
 database_id = "cfc21b9f-4f65-464a-987c-bc8856935e31"
+
+# wrangler.toml (wrangler v3.88.0^)
+[observability.logs]
+enabled = true
