@@ -3,8 +3,8 @@ main = "build/worker/shim.mjs"
 compatibility_date = "2025-09-16"
 
 [build]
-# command = "cargo install -q worker-build --version 0.1.4 --force && worker-build --release"
-command = "worker-build --release"
+command = "cargo install -q worker-build --version 0.1.4 --force && worker-build --release"
+# command = "worker-build --release"
 
 [[d1_databases]]
 binding = "koreader-sync"
