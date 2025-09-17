@@ -1,0 +1,5 @@
+= koreader 阅读进度同步服务
+
+== 环境变量
+
+    - DISABLE_REGISTER 可设置为``true``或者``false``进行控制是否开启注册

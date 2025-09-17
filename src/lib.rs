@@ -266,10 +266,15 @@ async fn update_progress(req: &mut Request, db: D1Database) -> Result<Response> 
 #[event(fetch)]
 pub async fn main(req: Request, env: Env, _ctx: worker::Context) -> Result<Response> {
     let router = Router::new();
-
     router
         //注册账号
         .post_async("/users/create", |mut req, ctx| async move {
+            console_log!("{:?}",ctx.env.var("DISABLE_REGISTER"));
+            if let Ok(value) = ctx.env.var("DISABLE_REGISTER") {
+                if value.to_string().eq_ignore_ascii_case("true") {
+                   return Response::error("禁止注册", 405);
+                }
+            }
             let db = ctx.d1("koreader-sync").unwrap();
             register(&mut req, db).await
         })
